@@ -16,4 +16,4 @@ The current functionality of the application is as follows:
 
 <b>Note:</b> Once the repo is cloned/downloaded, you must provide the API key in order to have the application function properly. In order to generate an API key, please see the "How do I apply for an API key" section here: https://www.themoviedb.org/faq/api
 
-Once an API key has been obtained, place it into the strings.xml file, which is found in the res/values directory.
+Once an API key has been obtained, place it into the strings.xml file (string name = "API_key"), which is found under the res/values directory. [Please click here to see the file.](/app/src/main/res/values/strings.xml)

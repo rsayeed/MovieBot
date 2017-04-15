@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/rubab/version-control/MovieBot/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a3b87374c1077288e2d238dd751b13700a1adfdb">
+        <dex dex="/home/rubab/version-control/MovieBot/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_183184879b73bbba73e3f55e55a713a03e41fc7a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/rubab/version-control/MovieBot/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/home/rubab/version-control/MovieBot/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_7162895e49e9aba0ebcae44fe0d0a0af2a91a265/classes.dex" />
+    </item>
+
+</items>

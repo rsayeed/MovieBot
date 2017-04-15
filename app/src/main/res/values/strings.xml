@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MovieBot</string>
+    <string name="API_key"></string>
+    <string name="popular">popular</string>
+    <string name="topRated">top_rated</string>
+    <string name="error_msg">Could not load movie data. Please check your connection and try again.</string>
+    <string name="menu_popular">Sort by Most Popular</string>
+    <string name="menu_toprated">Sort by Top Rated</string>
+    <string name="ActionBarPopular">Popular Movies</string>
+    <string name="ActionBarDetails">Movie Details</string>
+</resources>

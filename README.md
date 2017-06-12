@@ -18,7 +18,7 @@ The current functionality of the application is as follows:
 <li>Optimized for tablet support (7" screens)</li>
 </ul>
 
-<b>Features of this application</b>
+<b>Features of this application:</b>
 <ul>
 <li>Demonstrate the use of AsyncTasks and AsyncLoaders to run specific functionality off the main UI thread</li>
 <li>Handling intents (implicit and explicit) - activity transition, calling another app (i.e. youtube)

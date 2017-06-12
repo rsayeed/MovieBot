@@ -29,7 +29,11 @@ import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * These utilities will be used to communicate with the weather servers.
@@ -44,7 +48,14 @@ public final class NetworkUtils {
     private static final String STATIC_MOVIE_POSTER_URL =
             "http://image.tmdb.org/t/p/";
 
+    private static final String STATIC_TRAILER_BASE_URL =
+            "http://www.youtube.com/watch";
+
     final static String API_QUERY_PARAM = "api_key";
+    final static String VIDEO_QUERY_PARAM = "videos";
+    final static String REVIEW_QUERY_PARAM = "reviews";
+    final static String PAGE_QUERY_PARAM = "page";
+    final static String YOUTUBE_QUERY_PARAM = "v";
 
 
     /**
@@ -91,6 +102,125 @@ public final class NetworkUtils {
         return url;
     }
 
+    /**
+     * This method will construct the URL to go against the movieDB API and return
+     * appropriate details as per the parameters passed in from MainActivity
+     *
+     * @return
+     */
+    public static ArrayList<URL> buildUrlForMoviePoster(Set<String> favoriteMoviesList, String APIKey) {
+
+        Uri builtUri;
+        ArrayList<URL> urlList = new ArrayList<>();
+
+        Iterator<String> setIterator = favoriteMoviesList.iterator();
+
+        // Loop through Set elements containing Movie ID's
+        while(setIterator.hasNext()) {
+
+            // Build URL to retrieve movie Details
+            builtUri = Uri.parse(STATIC_MOVIE_BASE_URL)
+                    .buildUpon()
+                    .appendPath(setIterator.next())
+                    .appendQueryParameter(API_QUERY_PARAM, APIKey)
+                    .build();
+
+
+            URL url = null;
+            try {
+                url = new URL(builtUri.toString());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
+            urlList.add(url);
+
+            Log.v(TAG, "Built URI " + url);
+        }
+
+        return urlList;
+    }
+
+    /**
+     * This method will construct the URL to go against the movieDB API and return
+     * appropriate details pertaining to Trailer video information
+     *
+     */
+    public static URL buildUrlForMovieTrailer(String movieID, String APIKey) {
+
+        Uri builtUri;
+
+        // Build the URL to retreive trailers
+        builtUri = Uri.parse(STATIC_MOVIE_BASE_URL)
+                .buildUpon()
+                .appendPath(movieID)
+                .appendPath(VIDEO_QUERY_PARAM)
+                .appendQueryParameter(API_QUERY_PARAM, APIKey)
+                .build();
+
+
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        Log.v(TAG, "Built URI " + url);
+
+        return url;
+    }
+
+    /**
+     * This method will construct the URL to go against the movieDB API and return
+     * Reviews for a given movie
+     *
+     */
+    public static URL buildUrlForMovieReviews(String movieID, String APIKey, int pageCount) {
+
+        Uri builtUri;
+
+        // Build the URL to retreive trailers
+        builtUri = Uri.parse(STATIC_MOVIE_BASE_URL)
+                .buildUpon()
+                .appendPath(movieID)
+                .appendPath(REVIEW_QUERY_PARAM)
+                .appendQueryParameter(API_QUERY_PARAM, APIKey)
+                .appendQueryParameter(PAGE_QUERY_PARAM, String.valueOf(pageCount))
+                .build();
+
+
+        URL url = null;
+        try {
+            url = new URL(builtUri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        Log.v(TAG, "Built URI " + url);
+
+        return url;
+    }
+
+    /**
+     * This method will construct the URI to view the youtube trailer
+     *
+     */
+    public static Uri buildUrlForYoutubeTrailer(String videoID) {
+
+        Uri builtUri;
+
+        // Build the URL to retreive trailers
+        builtUri = Uri.parse(STATIC_TRAILER_BASE_URL)
+                .buildUpon()
+                .appendQueryParameter(YOUTUBE_QUERY_PARAM, videoID)
+                .build();
+
+        Log.v(TAG, "Built URI " + builtUri);
+
+        return builtUri;
+    }
+
 
     /**
      * This method returns the entire result from the HTTP response.
@@ -123,6 +253,46 @@ public final class NetworkUtils {
         } finally {
             urlConnection.disconnect();
         }
+    }
+
+    /**
+     * This method returns the entire result from the HTTP response.
+     *
+     * @param urlList The list of URL to fetch the HTTP response from.
+     * @return The contents of the HTTP response.
+     * @throws IOException Related to network and stream reading
+     */
+    public static List<String> getResponseFromHttpUrl(List<URL> urlList) throws IOException {
+
+        List<String> httpRespList = new ArrayList<>();
+
+        for (int i = 0; i < urlList.size(); i++) {
+
+            HttpURLConnection urlConnection = (HttpURLConnection) urlList.get(i).openConnection();
+
+            try {
+                InputStream in = urlConnection.getInputStream();
+
+                Scanner scanner = new Scanner(in);
+                scanner.useDelimiter("\\A");
+
+                boolean hasInput = scanner.hasNext();
+                if (hasInput) {
+
+                    String movieData = scanner.next();
+                    Log.v(TAG, "Favorite Movie Data: " + movieData);
+                    httpRespList.add(movieData);
+
+                } else {
+                    return null;
+                }
+
+            } finally {
+                urlConnection.disconnect();
+            }
+        }
+
+       return httpRespList;
     }
 
 

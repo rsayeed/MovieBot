@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -158,18 +157,12 @@ public class DetailActivity extends AppCompatActivity implements TrailerAdapter.
                 // Get movie ID from main activity
                 movieID = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
 
-                Log.v(TAG, "ON CREATE STATE FAV BTN: " + stateOfFavBtn);
-
                 // Get indicator telling us whether this movie is user's favorite or not
                 isFavoriteMovie = intentThatStartedThisActivity.getBooleanExtra(getString(R.string.favMovieIntent), false);
 
                 // Set Favorite button image
                 if (isFavoriteMovie) {
 
-                    // Checking for state is unreliable here because onrestore isnt called till after this method completes...
-
-                    Log.v(TAG, "FAVORITE MOVIE SET BUTTON");
-                    //  stateOfFavBtn = 1;
                     mFavoriteBtn.setBackgroundResource(R.drawable.ic_star_border_big_filled);
 
                 }

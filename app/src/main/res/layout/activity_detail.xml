@@ -18,7 +18,7 @@
             android:padding="24dp"
             tools:text="Pirates of the Caribbean"
             android:textColor="@color/colorWhite"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:typeface="normal"
             android:fontFamily="sans-serif" />
 

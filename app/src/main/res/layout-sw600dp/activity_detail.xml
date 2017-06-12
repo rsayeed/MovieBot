@@ -88,6 +88,36 @@
                 android:background="@color/colorDefault"
                 android:onClick="onFavoriteButtonClick"/>
 
+            <TextView
+                android:id="@+id/textViewTrailersLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginStart="100dp"
+                android:layout_toRightOf="@id/release_date"
+                android:layout_toEndOf="@id/release_date"
+                android:textSize="16sp"
+                android:typeface="normal"
+                android:textStyle="bold"
+                android:text="@string/trailerLabel"
+                android:fontFamily="sans-serif"
+                tools:text="@string/trailerLabel"/>
+
+
+            <!-- RecyclerView for displaying Trailer links -->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewTrailers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/release_date"
+                android:layout_toEndOf="@id/release_date"
+                android:layout_below="@id/textViewTrailersLabel"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginStart="100dp"
+                />
+
             <ProgressBar
                 android:id="@+id/pb_details_indicator"
                 android:layout_width="42dp"
@@ -112,26 +142,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"/>
-
-        <TextView
-            android:id="@+id/textViewTrailersLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_margin="16dp"
-            android:textSize="16sp"
-            android:typeface="normal"
-            android:textStyle="bold"
-            android:text="@string/trailerLabel"
-            android:fontFamily="sans-serif"
-            tools:text="@string/trailerLabel"/>
-
-
-        <!-- RecyclerView for displaying Trailer links -->
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerViewTrailers"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
 
         <TextView
             android:id="@+id/textViewReviewLabel"

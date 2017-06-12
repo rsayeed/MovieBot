@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default portrait mode margins-->
+    <dimen name="grid_view_width">205dp</dimen>
+    <dimen name="grid_view_height">300dp</dimen>
+</resources>

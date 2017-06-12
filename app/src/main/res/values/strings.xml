@@ -3,9 +3,25 @@
     <string name="API_key"></string>
     <string name="popular">popular</string>
     <string name="topRated">top_rated</string>
+    <string name="actionFavorite">favorites</string>
     <string name="error_msg">Could not load movie data. Please check your connection and try again.</string>
     <string name="menu_popular">Sort by Most Popular</string>
     <string name="menu_toprated">Sort by Top Rated</string>
+    <string name="menu_favorites">Favorite Movies</string>
+    <string name="menu_toprated_title">Top Rated</string>
     <string name="ActionBarPopular">Popular Movies</string>
     <string name="ActionBarDetails">Movie Details</string>
+    <string name="trailerLabel">Trailers:</string>
+    <string name="reviewLabel">Reviews:</string>
+    <string name="reviewAuthorLabel">Author:</string>
+    <string name="loadMoreButtonLabel">LOAD MORE REVIEWS</string>
+    <string name="NoReviewsMsg">** No Reviews found for selected title **</string>
+    <string name="NoTrailersMsg">** No Trailers found for selected title **</string>
+    <string name="FavoritesPrefFile">Favorites</string>
+    <string name="FavoritesPrefOptionState">State</string>
+    <string name="FavoritesDisplayMsg">Added to Favorites!</string>
+    <string name="FavoritesDeleteDisplayMsg">Removed from Favorites!</string>
+    <string name="favMovieIntent">FavMovieIntent</string>
+    <string name="favoritesNotFound">There are no movies saved to your Favorites yet!</string>
+
 </resources>

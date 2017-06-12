@@ -9,5 +9,7 @@
     <color name="colorPurple">#311b92</color>
     <color name="colorBlue">#304ffe</color>
     <color name="colorLightBlue">#0288d1</color>
+    <color name="colorLightGray">#e0e0e0</color>
+    <color name="colorDefault">#00ffffff</color>
 
 </resources>

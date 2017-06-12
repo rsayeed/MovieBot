@@ -27,7 +27,7 @@ The current functionality of the application is as follows:
 <li>Network calls and JSON parsing</li>
 <li>Using Picasso framework to load and display images from URLs</li>
 <li>Data persistence using SQLite DB</li>
-<li>Handing configuration changes properly (orientation changes)</li>
+<li>Handling configuration changes</li>
 <li>Creating layouts to optimize for Tablet users</li> 
 </ul>
 

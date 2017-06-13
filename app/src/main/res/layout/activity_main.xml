@@ -18,7 +18,8 @@
         android:gravity="center"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="0dp"/>
+        android:verticalSpacing="0dp"
+        android:horizontalSpacing="0dp"/>
 
     <ProgressBar
         android:id="@+id/pb_loading_indicator"
